@@ -1,19 +1,28 @@
 pipeline {
-    
-    agent none
-    
-   stages {
-        
-        stage('Build'){
-            
-            agent {
-                label "myslavemaven"
-            }
-          
+
+agent any
+
+stages {
+stage ('SCM') {
+         steps {
+                 echo "git pull my code"
+         }
+}
+stage ('Deploy') {
+         steps {
+                echo "deploy my code"
+         }  
+}
+stage ('Build') {
           steps {
-             
-                echo "my master branch"
+                 echo "build final app"
+                 sh 'mvn clean package'
           }
-        }
-   }
+}
+stage ('PROD') {
+          steps {
+                 echo "DEPLOY MY FINAL CODE TO PROD"
+          }
+}
+}
 }
