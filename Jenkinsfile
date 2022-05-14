@@ -18,5 +18,10 @@ stage ('Test') {
                  echo "test my final app"
           }
 }
+stage ('PROD') {
+          steps {
+                 echo "DEPLOY MY FINAL CODE TO PROD"
+          }
+}
 }
 }
