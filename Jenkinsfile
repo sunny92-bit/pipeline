@@ -22,7 +22,7 @@ stage ('Build') {
 stage ('PROD') {
           steps {
                  echo "DEPLOY MY FINAL CODE TO PROD"
-                 archiveArtifacts artifacts: 'java -jar my-app-1.0-SNAPSHOT.jar', followSymlinks: false
+                 archiveArtifacts artifacts: 'java -jar target/*.jar', followSymlinks: false
           }
 }
 }
